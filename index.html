@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Paint API Blobs</title>
+  <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+  <!-- <img src="https://picsum.photos/id/1069/400/400"> -->
+  <!-- <img src="./shein.jpeg"> -->
+  <!-- 只需调整 变量 就可以有不同的形状 -->
+  <img src="https://picsum.photos/id/1069/250/250" style="--n:20;--v:50">
+  <img src="https://picsum.photos/id/1074/250/250" style="--n:30;--v:20">
+  <img src="https://picsum.photos/id/109/250/250" style="--n:8;--v:50">
+  <img src="https://picsum.photos/id/1019/250/250" style="--n:100;--v:80">
+  <script>
+    (async function () {
+      if (CSS["paintWorklet"] === undefined) {
+        await import("https://unpkg.com/css-paint-polyfill");
+      }
+      CSS.paintWorklet.addModule("./worklet.bundle.js");
+    })();
+  </script>
+</body>
+
+</html>
