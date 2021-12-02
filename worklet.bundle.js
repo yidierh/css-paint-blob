@@ -3,8 +3,7 @@
   registerPaint("blob", class {
     static get inputProperties() {
       return [
-        "--n",
-        "--b"
+        "--n"
       ];
     }
     paint(ctx, size, properties) {
@@ -13,10 +12,8 @@
       const cx = size.width / 2;
       const cy = size.height / 2;
       const N = parseInt(properties.get("--n"));
-      const B = parseFloat(properties.get("--b"));
-      var i;
       for (var i = 0; i < N; i++) {
-        var r = RADIUS - B * (i % 2);
+        var r = RADIUS - Math.random() * 50;
         var x = Math.cos(i / N * (2 * Math.PI)) * r + cx;
         var y = Math.sin(i / N * (2 * Math.PI)) * r + cy;
         point[i] = [x, y];

@@ -2,26 +2,31 @@ registerPaint('blob', class {
 
   static get inputProperties() {
     return [
-      '--n'
+      '--n',
+      '--b'
     ]
   }
 
-  /**
-   * @param {*} ctx : like canvs 可以用 canvas 的 api 但是 页面中没有出现 canvas 图层
-   * @param {*} size :img size
-   * @param {*} properties :css 中的属性
-   */
   paint(ctx, size, properties) {
     var point = [];
-
-    // 定义半径
     const RADIUS = size.width / 2;
     const cx = size.width / 2;
     const cy = size.height / 2;
-    const N = parseInt(properties.get('--n')); // 15
+    const N = parseInt(properties.get('--n'));
+    const B = parseFloat(properties.get('--b'));
 
+    var i;
     for (var i = 0; i < N; i++) {
-      var r = RADIUS - Math.random() * 50;
+
+      // 所有的点都有一个固定的位置（由形状的半径定义），但第一个点的位置是可变的，（RADIUS - B）。
+      // 当鼠标经过时 B 从 0 变为 100，将我们的点移近中间，就会有 blob 的效果了。
+      // if (i == 0)
+      //   var r = RADIUS - B;
+      // else
+      //   var r = RADIUS
+
+      // 我们这次只让偶数点可以收缩，其他的点固定不变
+      var r = RADIUS - B * (i % 2);
       var x = Math.cos((i / N) * (2 * Math.PI)) * r + cx;
       var y = Math.sin((i / N) * (2 * Math.PI)) * r + cy;
       point[i] = [x, y];
