@@ -10,19 +10,14 @@
 </head>
 
 <body>
-  <!-- <img src="./img_1.jpeg"> -->
+  <img src="./img_2.png">
   <!-- 只需调整 变量 就可以有不同的形状 -->
-  <img src="./img_2.png" style="--n:20;--v:50">
+  <!-- <img src="./img_2.png" style="--n:20;--v:50">
   <img src="./img_3.png" style="--n:30;--v:20">
-  <img src="./img_4.png" style="--n:8;--v:50">
+  <img src="./img_4.png" style="--n:8;--v:50"> -->
   <!-- <img src="./img_4.png" style="--n:100;--v:80"> -->
   <script>
-    (async function () {
-      if (CSS["paintWorklet"] === undefined) {
-        await import("https://unpkg.com/css-paint-polyfill");
-      }
-      CSS.paintWorklet.addModule("./worklet.bundle.js");
-    })();
+    CSS.paintWorklet.addModule("./worklet.bundle.js");
   </script>
 </body>
 

@@ -1,12 +1,14 @@
 /* step_1 */
 /* img {
   -webkit-mask:paint(blob);
-  --n:15;  // 传递给 paint 的变量 
+  --n:15;  // 传递给 paint 的变量
 }*/
 
 /* step_2 */
 /* 引入一个新的 CSS 变量 B */
 /* https://www.cnblogs.com/guangzan/p/14021662.html */
+
+/* 引入一个新的 CSS 变量 --b */
 @property --b{
   syntax: '<number>';
   inherits: false;
@@ -24,7 +26,8 @@ img {
 img:hover {
   /* --b:100 */
   /* --v style 传入 */
-  --b:var(--v) 
+  /* --b:var(--v)  */
+  --b: 50;
 }
 
 body {
