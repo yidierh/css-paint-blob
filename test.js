@@ -23,3 +23,4 @@ const BlobClass = class {
         // ... 其他代码不需要改动
     }
 }
+
